@@ -78,7 +78,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 const run = async () => {
     // useFindAndModify: true
     // useCreateIndex: true,
-    const connection = await mongoose.connect('mongodb://localhost:27017/onehundredandninetysix', {
+    const connection = await mongoose.connect(process.env.MONGODB_LIVE_KEY, {
         useNewUrlParser: true, 
         useUnifiedTopology: true
     })
