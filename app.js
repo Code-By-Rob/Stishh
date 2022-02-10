@@ -63,8 +63,8 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use('/', userRoutes);
-app.use('/Admin', isAdmin, adminRoutes);
-app.use('/Author', isAuthor, authorRoutes)
+app.use('/Admin', adminRoutes);
+app.use('/Author', authorRoutes)
 app.use(express.static(__dirname+'/HTML'));
 app.use(express.static(__dirname+'/CSS'));
 app.use(express.static(__dirname+'/JS'));
