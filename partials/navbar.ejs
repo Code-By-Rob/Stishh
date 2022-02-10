@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="/navbar.css">
+<!-- <section class="container mt-3 mb-3 shadow-sm" id="advertisement">
+  <img id="ad-icon" class="ad-display ad-placement" src="/Vector-Icons/Stishh-Ad.svg" alt="" width="32" height="32">
+  <div id="ad">
+    <img class="ad-display ad-placement" src="/Vector-Icons/MiniFlash-Logo.svg" alt="" width="32" height="32">
+    <p class="ad-placement" id="ad-title">MiniFlash</p>
+    <p class="ad-placement" id="ad-description">Learn a language with MiniFlash!</p>
+    <a id="ad-link" class="ad-placement" href="https://www.miniflash.co.uk/" target="_blank">Learn more!</a>
+  </div>
+</section> -->
+<section class="container-fluid shadow-lg">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <div class="navbar-centering-div" style="display: flex; justify-content: center;">
+        <a class="navbar-brand" href="/">
+          <img src="/Vector-Icons/Stishh-sm-rounded.svg" alt="" width="100" height="40">
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto me-auto justify-content-center mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link fancy-link" aria-current="page" href="/News">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fancy-link" href="/Shopping">Shopping</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fancy-link" href="/Travel">Travel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Gaming">Gaming</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Celebs">Celebs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Internet">Internet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Animals">Animals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Movies">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/TV-shows">TV Shows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Arts">Arts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Music">Music</a>
+          </li>
+        </ul>
+        <div class="navbar-centering-div dropdown" style="display: flex; justify-content: center;">
+          <!-- <form class="d-flex justify-content-center">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            <a>
+              <button id="btn-login-gradient" class="btn">Sign in</button>
+            </a>
+          </form> -->
+          <% if (currentUser) { %>
+          <div class="dropdown-toggle account-dropdown rounded-pill" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= currentUser.firstname %>
+          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/Author/drafts">Drafts</a></li>
+            <li><a class="dropdown-item" href="/Author/my-articles">Articles</a></li>
+            <li><a class="dropdown-item" href="/Author/Profile">My Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/Author/article-post">Write an article</a></li>
+            <% if (currentUser.role === 'Admin') { %> 
+              <li><a class="dropdown-item" href="/admin">Admin Dashboard</a></li>
+            <% } %> 
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+          <% } else { %>
+            <a href="/login" style="text-decoration: none;">
+              <button id="btn-login-gradient" class="btn">Login</button>
+            </a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="slider">
+    <div class="slide-track">
+      <div class="slide">
+        Trending: Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Trending: Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Trending: Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Sponsered: Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Sponsered: Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Sponsered: Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Sponsered: Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+      <div class="slide">
+        Why you should xyz when your abc...Why you should xyz when your abc...Why you should xyz when your abc...
+      </div>
+    </div>
+  </div> -->
+</section>

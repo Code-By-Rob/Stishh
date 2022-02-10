@@ -1,0 +1,115 @@
+<% layout('../layouts/boilerplate') %>
+<link rel="stylesheet" href="/CSS/my-articles.css">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 id="content-title" class="display-5"><%= articleTitle %> Articles</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <ul class="list-unstyled">
+                <% try { %>
+                <% for (let article of articles) { %>
+                <li>
+                    <a href=<%= `/article/${article._id}` %>>
+                        <div class="container my-article mt-4">
+                            <div class="row" style="height: 100%;">
+                                <div class="col-lg-4" style=
+                                "position: relative; 
+                                background-image: url('/images/<%= article.headerImage %>'); 
+                                background-size: cover; 
+                                background-repeat: no-repeat; 
+                                background-position: center;">
+                                </div>
+                                <div class="col-lg-6 article-content">
+                                    <div class="my-article-content">
+                                        <p class="article-info"><%= article.topic %> </p>
+                                        <h2 class="article-title fancy-link"><%= article.title %></h2>
+                                        <p class="article-description"><%= article.description %></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                    <ul class="list-unstyled">
+                                        <li class="article-info"><%= article.views %> </li>
+                                        <li class="article-info">Hearts</li>
+                                        <li class="article-info"><%= article.minsToRead %> </li>
+                                        <li class="article-info"><%= article.date %></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <% } %> 
+                <% } catch (err) { console.log('No Articles') } %>
+            </ul>
+        </div>
+        <div class="col-3 mt-4">
+            <h3 class="title-sm">Trending</h3>
+            <div id="trending" class="shadow">
+                <ul class="list-unstyled">
+                    <% try { %>
+                    <% for (let article of articles) { %>
+                    <li class="mt-3">
+                        <a href="<%= `/article/${article._id}` %>">
+                            <div class="article-short">
+                                <div class="container mt-3" style="padding-left: 0; padding-right: 1rem;">
+                                    <div class="row">
+                                        <div class="col-6" style=
+                                        "position: relative; 
+                                        background-image: url('/images/<%= article.headerImage %>'); 
+                                        background-size: cover; 
+                                        background-repeat: no-repeat; 
+                                        background-position: center;">
+                                        </div>
+                                        <div class="col-6 article-content">
+                                            <div class="my-article-content-sm">
+                                                <h2 class="article-title-sm fancy-link"><%= article.title %></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %> 
+                    <% } catch (err) { console.log('No Articles') } %>
+                </ul>
+            </div>
+            <h3 class="title-sm">Top posts</h3>
+            <div id="top-posts" class="shadow">
+                <ul class="list-unstyled">
+                    <% try { %>
+                    <% for (let article of articles) { %>
+                    <li class="mt-3">
+                        <a href="<%= `/article/${article._id}` %>">
+                            <div class="article-short">
+                                <div class="container mt-3" style="padding-left: 0; padding-right: 1rem;">
+                                    <div class="row">
+                                        <div class="col-6" style=
+                                        "position: relative; 
+                                        background-image: url('/images/<%= article.headerImage %>'); 
+                                        background-size: cover; 
+                                        background-repeat: no-repeat; 
+                                        background-position: center;">
+                                        </div>
+                                        <div class="col-6 article-content">
+                                            <div class="my-article-content-sm">
+                                                <h2 class="article-title-sm fancy-link"><%= article.title %></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %> 
+                    <% } catch (err) { console.log('No Articles') } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

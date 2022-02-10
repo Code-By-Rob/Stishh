@@ -1,0 +1,137 @@
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, p::selection, a::selection, li::selection {
+    background-color: #FE5C5D;
+    color: #FFF;
+}
+.hide {
+    display: none;
+}
+#article-title {
+    font-size: 2.5rem;
+    font-family: 'Archivo Black', sans-serif;
+}
+.article-title {
+    font-family: 'Archivo Black', sans-serif;
+}
+#article-description {
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.article-content-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+}
+.article-text {
+    font-family: 'Montserrat', sans-serif;
+}
+.article-content {
+    font-size: 1rem;
+}
+/* #article-details {
+    position: fixed;
+    width: inherit;
+    bottom: 0;
+    left: 2rem;
+}
+#article-share {
+    position: fixed;
+    width: inherit;
+    bottom: 2rem;
+    right: 2rem;
+} */
+.icon-md {
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+}
+.avatar {
+    height: 5rem;
+    width: 5rem;
+    position: relative;
+    display: inline-block;
+}
+.avatar-img {
+    width: 100%;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+    color: black;
+    transition: .3s;
+}
+a:hover {
+    color: #2163e8;
+}
+.full-width-image {
+    width: 100%;
+    height: 40rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+}
+.article-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+    height: 100%;
+    height: auto;
+}
+
+.embedded {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.5rem;
+}
+
+#tldr-section {
+    width: 100%;
+    height: auto;
+    padding: 1.25rem;
+    border-radius: .5rem;
+    overflow-x: hidden;
+}
+
+#author-name {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+#author-title-links {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
+}
+.author-link {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
+}
+#article-info {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+#draft-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 6rem;
+}
+.edit-draft-button {
+    width: 10rem;
+}
+.btn-primary-colour {
+    background-color: #FE5C5D;
+    color: #fff;
+}
+.btn-primary-colour:hover {
+    border: 1px #FE5C5D solid;
+    background-color: transparent;
+    color: #FE5C5D;
+}
+
+@media only screen and (max-width: 992px) {
+    #article-details {
+        position: relative;
+    }
+    #article-share {
+        position: relative;
+    }
+}

@@ -1,0 +1,152 @@
+<% layout('../layouts/boilerplate') %>
+<link rel="stylesheet" href="/CSS/article.css">
+<section class="mt-5">
+    <div class="container pb-3 pb-lg-5">
+        <h1 id="article-title"><%= `DRAFT: ${draft.title}` %> </h1>
+        <p id="article-description"><%= draft.description %></p>
+    </div>
+</section>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-lg-2">
+            <div id="trigger1"></div>
+            <div id="article-details" class="text-start text-lg-center mb-5">
+                <div class="avatar avatar-xl">
+                    <img id="author-image" class="avatar-img rounded-circle" src="/images/<%= currentUser.profilePicture %>" alt="">
+                </div>
+                <a href="#" id="author-name" class="h5 mt-2 mb-0 d-block">
+                    <%= draft.authorName %>
+                </a>
+                <label class="mt-4">Who am I:</label>
+                <p id="author-title-links">
+                    <%= currentUser.title %>
+                </p>
+                <label>Links:</label>
+                <ul class="list-unstyled">
+                    <% try { %>
+                    <% for (let links of currentUser.links) { %>
+                    <li>
+                        <a class="author-link" href="<%= links.url %>" target="_blank">
+                            <%= links.name %>
+                        </a>
+                    </li>
+                    <% } %>
+                    <% } catch(err) { console.log('No links.') } %>
+                </ul>
+                <hr class="d-none d-lg-block">
+                <ul id="article-info" class="list-inline list-unstyled">
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        <%= draft.date %>
+                    </li>
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        <%= draft.minsToRead %> 
+                    </li>
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        Hearts!
+                    </li>
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        <%= draft.views %>
+                    </li>
+                </ul>
+                <ul class="list-inline text-primary-hover mt-0 mt-lg-3">
+                    <% try {%>
+                    <% for (let m = 0; m < draft.tags.length; m++) { %> 
+                        <li class="list-inline-item">
+                            <a href="#" class="text-body"><%= draft.tags[m] %> </a>
+                        </li>
+                    <% } %>
+                    <%} catch(err) { console.log(err) } %>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-7 mb-5">
+            <!-- <div class="full-width-image" style="background-image: url('/images/ //article.headerImage ');background-size: cover; background-repeat: no-repeat;">
+            </div> -->
+            <% for (let i = 0; i < draft.content.length; i++) { %>
+                <% switch(Object.keys(draft.content[i])[0]) { 
+                case 'text': %>
+                <p class="article-text"><%= draft.content[i].text %> </p>
+                <% break;
+                case 'title': %>
+                <h3 class="article-title"><%= draft.content[i].title %> </h3>
+                <% break;
+                case 'linkitem': %>
+                <a href="<%= draft.content[i].linkitem %>" target="_blank"><%= draft.content[i].linkitem %></a>
+                <% break; 
+                case 'list': %>
+                <ul>
+                <% for (let j = 0; j < draft.content[i].list.length; j++) { %>    
+                    <li><%= draft.content[i].list[j] %></li>
+                <% } %>
+                </ul>
+                <% break;
+                case 'image': %>
+                <div class="full-width-image">
+                    <img class="article-image" src="/images/<%= draft.content[i].image %>" alt="">
+                </div>
+                <% break;
+                case 'embedded': %>
+                <div class="embedded"><%= draft.content[i].embedded %></div>
+                <% } %> 
+            <% } %>
+        </div>
+        <div class="col-lg-3">
+            <div id="trigger2"></div>
+            <div id="article-share">
+                <h3>Share this article!</h3>
+            <ul class="nav text-white-force">
+                <li class="nav-item">
+                    <a href="#" class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook">
+                        <img src="/Vector-Icons/facebook_logo_icon.svg" alt="" width="24" height="24">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-instagram-gradient">
+                        <img src="/Vector-Icons/instagram_logo_icon.svg" alt="" width="36" height="36">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter">
+                        <img src="/Vector-Icons/twitter_logo_icon.svg" alt="" width="24" height="24">
+                    </a>
+                </li>
+            </ul>
+            <div id="tldr-section" class="shadow-sm">
+                <h3 class="article-content-title">TL;DR</h3>
+                <% for (let i = 0; i < draft.content.length; i++) {
+                    switch(Object.keys(draft.content[i])[0]) { 
+                    case 'tldr-text': %>
+                    <p class="article-text"><%= draft.content[i]['tldr-text'] %> </p>
+                    <% break;
+                    case 'tldr-title': %>
+                    <h3 class="article-title"><%= draft.content[i]['tldr-title'] %> </h3>
+                    <% break;
+                    case 'tldr-linkitem': %>
+                    <a href="<%= draft.content[i]['tldr-linkitem'] %>" target="_blank"><%= draft.content[i]['tldr-linkitem'] %></a>
+                    <% break; 
+                    case 'tldr-list': %>
+                    <ul>
+                    <% for (let j = 0; j < draft.content[i]['tldr-list'].length; j++) { %>    
+                        <li><%= draft.content[i]['tldr-list'][j] %></li>
+                    <% } %>
+                    </ul>
+                    <% break;
+                    }
+                } %>
+            </div>
+            </div>
+            <div id="draft-container">
+                <a href="/Author/drafts/edit/<%= draft._id %>">
+                    <button id="<%= draft._id %>" class="btn btn-primary-colour edit-draft-button">Edit</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="/JS/article.js"></script>
+<link rel="stylesheet" href="../CSS/iframes.css">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script src= "https://player.twitch.tv/js/embed/v1.js"></script>

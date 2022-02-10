@@ -1,0 +1,156 @@
+<% layout('../layouts/boilerplate') %>
+<link rel="stylesheet" href="/CSS/my-articles.css">
+<link rel="stylesheet" href="/CSS/article.css">
+<link rel="stylesheet" href="/CSS/profile.css">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-2 p-4 mt-4">
+            <div id="user-profile-details" class="d-flex flex-column align-items-center">
+                <div class="avatar avatar-xl">
+                    <div class="image-upload">
+                        <label for="add-image-button">
+                            <img id="author-image" class="avatar-img rounded-circle" src="/images/<%= currentUser.profilePicture %>" alt="">
+                        </label>
+                        <input id="add-image-button" type="file" accept="image/*"></input>
+                    </div>
+                </div>
+                <a href="#" id="author-name" class="h5 mt-2 mb-2 d-block">
+                    <%= currentUser.firstname + ' ' + currentUser.surname %>
+                </a>
+                <input type="text" value="<%= currentUser.firstname + ' ' + currentUser.surname %>" id="author-name-input" class="hide">
+                <p id="author-title" class="text-center">
+                    <% if (currentUser.title) { %>
+                        <%= currentUser.title %>
+                    <% } else { %>
+                        <%= 'Writer @ Stishh' %>
+                    <% } %>
+                </p>
+                <input type="text" value="Writer @ Stishh" id="author-title-input" class="hide">
+                <label>Links:</label>
+                <ul id="author-links-list" class="list-unstyled">
+                    <% try { %>
+                    <% for (let link of currentUser.links) { %>
+                    <li>
+                        <a href="<%= link.url %>" target="_blank">
+                            <%= link.name %>
+                        </a>
+                    </li>
+                    <% } %>
+                    <% } catch(err) { console.log('No links') } %>
+                </ul>
+                <div id="author-links-div" class="hide">
+                    <input type="text" placeholder="Add a link name" id="author-link-name-input">
+                    <input type="text" placeholder="Add a link url" id="author-link-url-input">
+                    <button id="add-link-item-button" class="btn btn-primary-colour">Add</button>
+                </div>
+                <p id="number-of-articles">
+                    <%= articles.length %>
+                </p>
+                <button id="edit-profile-button" class="btn btn-primary-colour" style="width: 6rem;">Edit</button>
+            </div>
+        </div>
+        <div class="col-10 p-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <!-- list of top articles -->
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h2 id="content-title" class="display-5">Top Articles</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <% try { %>
+                            <% for (let article of articles) { %>
+                            <li>
+                                <a href=<%= `/article/${article._id}` %>>
+                                    <div class="container my-article mt-4">
+                                        <div class="row" style="height: 100%;">
+                                            <div class="col-lg-3" style=
+                                            "position: relative; 
+                                            background-image: url('/images/<%= article.headerImage %>'); 
+                                            background-size: cover; 
+                                            background-repeat: no-repeat; 
+                                            background-position: center;">
+                                            </div>
+                                            <div class="col-lg-6 article-content">
+                                                <div class="my-article-content">
+                                                    <p class="article-info"><%= article.topic %> </p>
+                                                    <h2 class="article-title fancy-link"><%= article.title %></h2>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                                <ul class="list-unstyled">
+                                                    <li class="article-info"><%= article.views %> </li>
+                                                    <li class="article-info">Hearts</li>
+                                                    <li class="article-info"><%= article.minsToRead %> </li>
+                                                    <li class="article-info"><%= article.date %></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <% } %> 
+                            <% } catch (err) { console.log('No Articles') } %>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <!-- list of drafts -->
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h2 id="content-title" class="display-5">My Drafts</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <% try { %>
+                            <% for (let draft of drafts) { %>
+                            <li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a href=<%= `/Author/draft/${draft._id}` %>>
+                                                <div class="container my-article mt-4">
+                                                    <div class="row" style="height: 100%;">
+                                                        <div class="col-lg-3" style=
+                                                        "position: relative; 
+                                                        background-image: url('/images/<%= draft.headerImage %>'); 
+                                                        background-size: cover; 
+                                                        background-repeat: no-repeat; 
+                                                        background-position: center;">
+                                                        </div>
+                                                        <div class="col-lg-6 article-content">
+                                                            <div class="my-article-content">
+                                                                <p class="article-info"><%= draft.topic %> </p>
+                                                                <h2 class="article-title fancy-link"><%= draft.title %></h2>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-2" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                                            <ul class="list-unstyled">
+                                                                <li class="article-info"><%= draft.views %> </li>
+                                                                <li class="article-info">Hearts</li>
+                                                                <li class="article-info"><%= draft.minsToRead %> </li>
+                                                                <li class="article-info"><%= draft.date %></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <% } %> 
+                            <% } catch (err) { console.log('No Articles') } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/JS/profile.js"></script>

@@ -1,0 +1,58 @@
+<% layout('../layouts/boilerplate') %>
+<link rel="stylesheet" href="../CSS/my-articles.css">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 id="content-title" class="display-5">My Drafts</h2>
+        </div>
+    </div>
+</div>
+<ul class="list-unstyled">
+    <% try { %>
+    <% for (let draft of drafts) { %>
+    <li>
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <a href=<%= `/draft/${draft._id}` %>>
+                        <div class="container my-article mt-4">
+                            <div class="row" style="height: 100%;">
+                                <div class="col-lg-3" style=
+                                "position: relative; 
+                                background-image: url('/images/<%= draft.headerImage %>'); 
+                                background-size: cover; 
+                                background-repeat: no-repeat; 
+                                background-position: center;">
+                                </div>
+                                <div class="col-lg-6 article-content">
+                                    <div class="my-article-content">
+                                        <p class="article-info"><%= draft.topic %> </p>
+                                        <h2 class="article-title fancy-link"><%= draft.title %></h2>
+                                        <p class="article-description"><%= draft.description %></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                    <ul class="list-unstyled">
+                                        <li class="article-info"><%= draft.views %> </li>
+                                        <li class="article-info">Hearts</li>
+                                        <li class="article-info"><%= draft.minsToRead %> </li>
+                                        <li class="article-info"><%= draft.date %></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2 d-flex flex-column justify-content-center align-items-center">
+                    <button id="<%= draft._id %>" class="btn btn-primary-colour draft-buttons remove-draft-button">Delete</button>
+                    <a href="/Author/drafts/edit/<%= draft._id %>">
+                        <button id="<%= draft._id %>" class="btn btn-primary-colour draft-buttons edit-draft-button mt-2">Edit</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </li>
+    <% } %> 
+    <% } catch (err) { console.log('No Articles') } %>
+</ul>
+<script src="../JS/draft.js"></script>

@@ -1,0 +1,32 @@
+.article-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: larger;
+}
+.article-description {
+    font-size: small;
+    font-family: 'Montserrat', sans-serif;
+}
+.article-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+}
+.my-article {
+    height: 11.25rem;
+}
+.image-upload {
+    height: 100%;
+    width: 100%;
+}
+.image-upload > label {
+    height: 100%;
+    width: 100%;
+}
+.image-upload>input {
+    display: none;
+}
+#author-image:hover {
+    cursor: pointer;
+}
+.hide {
+    display: none;
+}

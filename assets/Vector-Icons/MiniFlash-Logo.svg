@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1147 1147">
+  <defs>
+    <filter id="luminosity-invert" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+    </filter>
+    <mask id="mask" x="289" y="607" width="557" height="302" maskUnits="userSpaceOnUse">
+      <g filter="url(#luminosity-invert)">
+        <g transform="translate(41 42)">
+          <image width="557" height="302" transform="translate(248 565)" xlink:href="MiniFlash-Cute-Logo-Chubbiest-34.png"/>
+        </g>
+      </g>
+    </mask>
+    <filter id="luminosity-noclip" x="356" y="737" width="347" height="129" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-2" x="397" y="779" width="347" height="129" maskUnits="userSpaceOnUse">
+      <g filter="url(#luminosity-noclip)">
+        <g transform="translate(41 42)">
+          <image width="347" height="129" transform="translate(356 737)" xlink:href="MiniFlash-Cute-Logo-Chubbiest-35.png"/>
+        </g>
+      </g>
+    </mask>
+    <mask id="mask-3" x="354" y="607" width="430" height="93" maskUnits="userSpaceOnUse">
+      <g filter="url(#luminosity-invert)">
+        <g transform="translate(41 42)">
+          <image width="430" height="93" transform="translate(313 565)" xlink:href="MiniFlash-Cute-Logo-Chubbiest-36.png"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <g style="isolation: isolate">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <image width="1147" height="1099" transform="translate(0 25)" opacity="0.3" xlink:href="MiniFlash-Cute-Logo-Chubbiest-31.png" style="mix-blend-mode: multiply"/>
+        <g>
+          <rect x="98.01" y="163.39" width="829.29" height="698.11" rx="166.04" transform="matrix(0.87, -0.5, 0.5, 0.87, -146.54, 366.98)" fill="#fff"/>
+          <rect x="98.01" y="163.39" width="829.29" height="698.11" rx="166.04" transform="matrix(0.87, -0.5, 0.5, 0.87, -146.54, 366.98)" fill="none" stroke="#35ff60" stroke-miterlimit="10" stroke-width="80"/>
+        </g>
+      </g>
+      <g>
+        <image width="1098" height="1147" transform="translate(24)" opacity="0.3" xlink:href="MiniFlash-Cute-Logo-Chubbiest-32.png" style="mix-blend-mode: multiply"/>
+        <g>
+          <rect x="97.43" y="162.63" width="829.29" height="698.11" rx="166.04" transform="translate(-146.09 741.31) rotate(-60)" fill="#fff"/>
+          <rect x="97.43" y="162.63" width="829.29" height="698.11" rx="166.04" transform="translate(-146.09 741.31) rotate(-60)" fill="none" stroke="#35ff60" stroke-miterlimit="10" stroke-width="80"/>
+        </g>
+      </g>
+      <g>
+        <image width="899" height="1030" transform="translate(124 59)" opacity="0.3" xlink:href="MiniFlash-Cute-Logo-Chubbiest-33.png" style="mix-blend-mode: multiply"/>
+        <g>
+          <rect x="204.02" y="139.03" width="698.11" height="829.29" rx="166.04" fill="#fff"/>
+          <rect x="204.02" y="139.03" width="698.11" height="829.29" rx="166.04" fill="none" stroke="#35ff60" stroke-miterlimit="10" stroke-width="80"/>
+        </g>
+      </g>
+      <rect x="676.66" y="334.88" width="101.39" height="191.76" rx="50.7" fill="#565656"/>
+      <rect x="727.44" y="383.99" width="52.18" height="92.77" rx="26.09" fill="#fff"/>
+      <g>
+        <path d="M526.88,864.28h0c-152.49,0-276.11-123.62-276.11-276.12h0a20.41,20.41,0,0,1,20.41-20.41H782.59A20.41,20.41,0,0,1,803,588.16h0C803,740.66,679.38,864.28,526.88,864.28Z" transform="translate(41 42)" fill="#e84b4b"/>
+        <g mask="url(#mask)">
+          <g opacity="0.2">
+            <path d="M526.88,864.28h0c-152.49,0-276.11-123.62-276.11-276.12h0a20.41,20.41,0,0,1,20.41-20.41H782.59A20.41,20.41,0,0,1,803,588.16h0C803,740.66,679.38,864.28,526.88,864.28Z" transform="translate(41 42)"/>
+          </g>
+        </g>
+      </g>
+      <g>
+        <path d="M530.68,739.25c-75,0-140,27.27-172.09,67.13a274.58,274.58,0,0,0,168.54,57.5h0A275.21,275.21,0,0,0,700,803.12C667.09,765,603.6,739.25,530.68,739.25Z" transform="translate(41 42)" fill="#f97d7d"/>
+        <g mask="url(#mask-2)">
+          <g opacity="0.5">
+            <path d="M530.68,739.25c-75,0-140,27.27-172.09,67.13a274.58,274.58,0,0,0,168.54,57.5h0A275.21,275.21,0,0,0,700,803.12C667.09,765,603.6,739.25,530.68,739.25Z" transform="translate(41 42)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+      <g>
+        <path d="M740.69,567.75H315.23v.48a87.62,87.62,0,0,0,87.62,87.62H653.07a87.62,87.62,0,0,0,87.62-87.62Z" transform="translate(41 42)" fill="#f7f7f7"/>
+        <g mask="url(#mask-3)">
+          <g opacity="0.2">
+            <path d="M740.69,567.75H315.23v.48a87.62,87.62,0,0,0,87.62,87.62H653.07a87.62,87.62,0,0,0,87.62-87.62Z" transform="translate(41 42)"/>
+          </g>
+        </g>
+      </g>
+      <rect x="410.86" y="335.01" width="101.39" height="191.76" rx="50.7" fill="#565656"/>
+      <rect x="459.97" y="384.13" width="52.18" height="92.77" rx="26.09" fill="#fff"/>
+    </g>
+  </g>
+</svg>

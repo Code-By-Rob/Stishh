@@ -1,0 +1,151 @@
+<% layout('../layouts/boilerplate') %>
+<link rel="stylesheet" href="/CSS/article.css">
+<meta property="og:url"           content="https://www.stishh.com/article/<% article._id %>" />
+<meta property="og:type"          content="article" />
+<meta property="og:title"         content="<% article.title %>" />
+<meta property="og:description"   content=" <% article.description %>" />
+<meta property="og:image"         content="https://www.stishh.com/image/<% article.headerImage %> " />
+<section class="mt-5">
+    <div class="container pb-3 pb-lg-5">
+        <h1 id="article-title"><%= article.title %> </h1>
+        <p id="article-description"><%= article.description %></p>
+    </div>
+</section>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-lg-2">
+            <div id="trigger1"></div>
+            <div id="article-details" class="text-start text-lg-center mb-5">
+                <div class="avatar avatar-xl">
+                    <img id="author-image" class="avatar-img rounded-circle" src="/images/<%= article.authorProfilePic %>" alt="">
+                </div>
+                <a href="#" id="author-name" class="h5 mt-2 mb-0 d-block">
+                    <%= article.authorName %>
+                </a>
+                <label class="mt-4">Who am I:</label>
+                <p id="author-title-links">
+                    <%= article.authorTitle %>
+                </p>
+                <label>Links:</label>
+                <ul class="list-unstyled">
+                    <% try { %>
+                    <% for (let links of article.authorLinks) { %>
+                    <li>
+                        <a class="author-link" href="<%= links.url %>" target="_blank">
+                            <%= links.name %>
+                        </a>
+                    </li>
+                    <% } %>
+                    <% } catch(err) { console.log('No links.') } %>
+                </ul>
+                <hr class="d-none d-lg-block">
+                <ul id="article-info" class="list-inline list-unstyled">
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        <%= article.date %>
+                    </li>
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        <%= article.minsToRead %> 
+                    </li>
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        Hearts!
+                    </li>
+                    <li class="list-inline-item d-lg-block my-lg-2">
+                        <%= article.views %>
+                    </li>
+                </ul>
+                <ul class="list-inline text-primary-hover mt-0 mt-lg-3">
+                    <% for (let m = 0; m < article.tags.length; m++) { %> 
+                        <li class="list-inline-item">
+                            <a href="#" class="text-body"><%= article.tags[m] %> </a>
+                        </li>
+                    <% } %> 
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-7 mb-5">
+            <!-- <div class="full-width-image" style="background-image: url('/images/ //article.headerImage ');background-size: cover; background-repeat: no-repeat;">
+            </div> -->
+            <% for (let i = 0; i < article.content.length; i++) { %>
+                <% switch(Object.keys(article.content[i])[0]) { 
+                case 'text': %>
+                <p class="article-text"><%= article.content[i].text %> </p>
+                <% break;
+                case 'title': %>
+                <h3 class="article-title"><%= article.content[i].title %> </h3>
+                <% break;
+                case 'linkitem': %>
+                <a href="<%= article.content[i].linkitem %>" target="_blank"><%= article.content[i].linkitem %></a>
+                <% break; 
+                case 'list': %>
+                <ul>
+                <% for (let j = 0; j < article.content[i].list.length; j++) { %>    
+                    <li><%= article.content[i].list[j] %></li>
+                <% } %>
+                </ul>
+                <% break;
+                case 'image': %>
+                <div class="full-width-image">
+                    <img class="article-image" src="/images/<%= article.content[i].image %>" alt="">
+                </div>
+                <% break;
+                case 'embedded': %>
+                <div class="embedded"><%= article.content[i].embedded %></div>
+                <% } %> 
+            <% } %>
+        </div>
+        <div class="col-lg-3">
+            <div id="trigger2"></div>
+            <div id="article-share">
+                <h3>Share this article!</h3>
+            <ul class="nav text-white-force">
+                <li class="nav-item">
+                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook">
+                            <img src="/Vector-Icons/facebook_logo_icon.svg" alt="" width="24" height="24">
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-instagram-gradient">
+                        <img src="/Vector-Icons/instagram_logo_icon.svg" alt="" width="36" height="36">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter">
+                        <img src="/Vector-Icons/twitter_logo_icon.svg" alt="" width="24" height="24">
+                    </a>
+                </li>
+            </ul>
+            <div id="tldr-section" class="shadow-sm">
+                <h3 class="article-content-title">TL;DR</h3>
+                <% for (let i = 0; i < article.content.length; i++) {
+                    switch(Object.keys(article.content[i])[0]) { 
+                    case 'tldr-text': %>
+                    <p class="article-text"><%= article.content[i]['tldr-text'] %> </p>
+                    <% break;
+                    case 'tldr-title': %>
+                    <h3 class="article-title"><%= article.content[i]['tldr-title'] %> </h3>
+                    <% break;
+                    case 'tldr-linkitem': %>
+                    <a href="<%= article.content[i]['tldr-linkitem'] %>" target="_blank"><%= article.content[i]['tldr-linkitem'] %></a>
+                    <% break; 
+                    case 'tldr-list': %>
+                    <ul>
+                    <% for (let j = 0; j < article.content[i]['tldr-list'].length; j++) { %>    
+                        <li><%= article.content[i]['tldr-list'][j] %></li>
+                    <% } %>
+                    </ul>
+                    <% break;
+                    }
+                } %>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="../JS/article.js"></script>
+<link rel="stylesheet" href="../CSS/iframes.css">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
