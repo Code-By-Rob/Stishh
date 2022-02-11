@@ -296,6 +296,10 @@ app.get('/Music', async (req, res) => {
     });
 });
 
+app.use((req, res) => {
+    res.render('./HTML/404-page.ejs', { title: Stishh - 404 });
+});
+
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
 });
