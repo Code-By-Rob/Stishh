@@ -75,17 +75,6 @@ app.use(express.static(__dirname+'/admin'));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
 
-async function seedProfiles() {
-    let email2 = 'robert.bowden@miniflash.co.uk';
-    let firstname2 = 'Robert';
-    let surname2 = 'Bowden';
-    let username2 = 'robert-stishh-admin';
-    let password2 = 'AU631uhs?123';
-    const role2 = 'Admin';
-    const user2 = new User({email2, firstname2, surname2, username2, role2});
-    await User.register(user2, password2);
-}
-
 const run = async () => {
     // useFindAndModify: true
     // useCreateIndex: true,
@@ -95,7 +84,6 @@ const run = async () => {
     })
     .then(() => {
         console.log('CONNECTION OPEN!');
-        seedProfiles();
     })
     .catch(err => {
         console.log('CONNECTION ERROR!')
