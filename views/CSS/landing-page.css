@@ -131,23 +131,33 @@
     background-position: center;
     background-size: cover;
 }
-#photography-topic-card {
-    background-image: url('/Images/photography-card-image.jpg');
+#gaming-topic-card {
+    background-image: url('/Images/gaming-card-image.jpg');
     background-position: center;
     background-size: cover;
 }
-#culture-topic-card {
-    background-image: url('/Images/culture-card-image.jpg');
+#internet-topic-card {
+    background-image: url('/Images/internet-card-image.jpg');
     background-position: center;
     background-size: cover;
 }
-#languages-topic-card {
-    background-image: url('/Images/languages-card-image.jpg');
+#animals-topic-card {
+    background-image: url('/Images/animals-card-image.jpg');
     background-position: center;
     background-size: cover;
 }
-#business-topic-card {
-    background-image: url('/Images/business-card-image.jpg');
+#movies-topic-card {
+    background-image: url('/Images/movies-card-image.jpg');
+    background-position: center top;
+    background-size: cover;
+}
+#tvshows-topic-card {
+    background-image: url('/Images/tvshows-card-image.jpg');
+    background-position: center top;
+    background-size: cover;
+}
+#arts-topic-card {
+    background-image: url('/Images/arts-card-image.jpg');
     background-position: center top;
     background-size: cover;
 }

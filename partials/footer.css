@@ -1,0 +1,19 @@
+.footer {
+    padding: 4rem 2rem;
+}
+.col-lg-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.topic-link {
+    text-decoration: underline;
+    font-size: 1.05rem;
+}
+.social-cta {
+    transition: .3s;
+}
+.social-cta:hover {
+    transform: translateY(-6px);
+}

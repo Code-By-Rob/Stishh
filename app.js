@@ -21,6 +21,7 @@ const authorRoutes = require('./routes/author');
 const { isLoggedIn } = require('./middleware/isLoggedIn');
 const { isAdmin } = require('./middleware/isAdmin');
 const { isAuthor } = require('./middleware/isAuthor');
+const ExpressError = require('./middleware/ExpressError');
 
 const { getFileStream } = require('./s3');
 const { env } = require('process');
@@ -78,7 +79,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 const run = async () => {
     // useFindAndModify: true
     // useCreateIndex: true,
-    const connection = await mongoose.connect(process.env.MONGODB_LIVE_KEY, {
+    const connection = await mongoose.connect(process.env.MONGODB_TEST_KEY, {
         useNewUrlParser: true, 
         useUnifiedTopology: true
     })
@@ -296,8 +297,16 @@ app.get('/Music', async (req, res) => {
     });
 });
 
-app.use((req, res) => {
-    res.render('./HTML/404-page.ejs', { title: 'Stishh - 404' });
+app.all('*', (req, res, next) => {
+	next(new ExpressError('Page Not Found', 404));
+});
+
+app.use((err, req, res, next) => {
+	const { statusCode = 500 } = err;
+	console.log(err);
+	res.status(statusCode).render('./HTML/404-page.ejs', {
+		title: 'Oops!'
+	});
 });
 
 app.listen(PORT, () => {
