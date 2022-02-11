@@ -160,7 +160,11 @@ const run = async () => {
     const router = AdminBroExpress.buildRouter(adminBro);
     app.use(adminBro.options.rootPath, router);
 }
-run();
+try {
+    run();
+} catch(err) {
+    console.log(err);
+}
 
 app.get('/', async (req, res) => {
     const articles = await Article.find({});
