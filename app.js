@@ -161,6 +161,25 @@ const run = async () => {
 }
 run();
 
+function seedProfiles() {
+    let email = 'robbiebowden99@gmail.com';
+    let firstname = 'Robert';
+    let surname = 'Bowden';
+    let username = 'Saphfy';
+    let password = 'DU531bky?123';
+    const role = 'Author';
+    const user = new User({email, firstname, surname, username, role});
+    await User.register(user, password);
+    let email2 = 'robert.bowden@miniflash.co.uk';
+    let firstname2 = 'Robert';
+    let surname2 = 'Bowden';
+    let username2 = 'robert.stishhadmin';
+    let password2 = 'AU631uhs?123';
+    const role2 = 'Admin';
+    const user2 = new User({email2, firstname2, surname2, username2, role2});
+    await User.register(user2, password2);
+}
+seedProfiles();
 
 app.get('/', async (req, res) => {
     const articles = await Article.find({});
