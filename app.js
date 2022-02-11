@@ -76,18 +76,10 @@ app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
 
 async function seedProfiles() {
-    let email = 'robbiebowden99@gmail.com';
-    let firstname = 'Robert';
-    let surname = 'Bowden';
-    let username = 'Saphfy';
-    let password = 'DU531bky?123';
-    const role = 'Author';
-    const user = new User({email, firstname, surname, username, role});
-    await User.register(user, password);
     let email2 = 'robert.bowden@miniflash.co.uk';
     let firstname2 = 'Robert';
     let surname2 = 'Bowden';
-    let username2 = 'robert.stishhadmin';
+    let username2 = 'robert-stishh-admin';
     let password2 = 'AU631uhs?123';
     const role2 = 'Admin';
     const user2 = new User({email2, firstname2, surname2, username2, role2});
