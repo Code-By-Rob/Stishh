@@ -10,7 +10,7 @@
                     <div class="image-upload">
                         <label for="add-image-button">
                             <% try { %> 
-                            <img id="author-image" class="avatar-img rounded-circle" src="/images/<%= currentUser.profilePicture %>" alt="">
+                                <img id="author-image" class="avatar-img rounded-circle" src="/images/<%= currentUser.profilePicture %>" alt="">
                             <% } catch(err) { console.log(err); } %> 
                         </label>
                         <input id="add-image-button" type="file" accept="image/*"></input>

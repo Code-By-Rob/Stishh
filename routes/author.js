@@ -224,4 +224,31 @@ router.get('/Profile', async (req, res) => {
     });
 });
 
+router.get('/New-Login', async (req, res) => {
+    res.render('./HTML/new-login-picture.ejs', {
+        title: 'Stishh - Author Photo'
+    })
+})
+
+router.post('/New-Login', upload.single('avatar'), async (req, res) => {
+    const { _id } = req.user;
+    const file = req.file;
+    let result = null;
+    if (file) {
+        result = await uploadFile(file);
+    } else {
+        console.log(err);
+    }
+    let authorUpdateObject = {
+        profilePicture: result.Key,
+    }
+    await User.findByIdAndUpdate(_id, authorUpdateObject, (err, res) => {
+        console.log(err);
+        console.log(res);
+    }).catch(err => {
+        console.log(err);
+    });
+    res.redirect('/Profile');
+})
+
 module.exports = router;

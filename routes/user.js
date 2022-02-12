@@ -27,7 +27,16 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', passport.authenticate('local', { failureFlash: false, failureRedirect: '/login' }), async (req, res) => {
-    res.redirect('/Author/Profile');
+    if (req.user.role === 'Author') {
+        // here the user will add a picture for their author account
+        if (!req.user.profilePicture) {
+            res.redirect('/Author/New-Login');
+        } else {
+            res.redirect('/Author/Profile');
+        }
+    } else {
+        res.redirect('/');
+    }
 })
 
 router.get('/logout', (req, res) => {
