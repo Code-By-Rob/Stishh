@@ -248,7 +248,7 @@ router.post('/New-Login', upload.single('avatar'), async (req, res) => {
     }).catch(err => {
         console.log(err);
     });
-    res.redirect('/Profile');
+    res.redirect('/Author/Profile');
 })
 
 module.exports = router;
