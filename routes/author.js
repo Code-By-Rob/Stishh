@@ -18,7 +18,7 @@ router.get('/my-articles', async (req, res) => {
 })
 router.get('/article-post', (req, res) => {
     res.render('./HTML/article-post.ejs', {
-        title: '196 - Post an Article'
+        title: 'Stishh - Post an Article'
     })
 })
 router.post('/create-article', upload.fields([{name: 'ImageHero', maxCount: 1}, {name: 'Images'}], ), async (req, res) => {
