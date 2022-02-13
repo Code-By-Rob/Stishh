@@ -79,7 +79,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 const run = async () => {
     // useFindAndModify: true
     // useCreateIndex: true,
-    const connection = await mongoose.connect(process.env.MONGODB_LIVE_KEY, {
+    const connection = await mongoose.connect(process.env.MONGODB_TEST_KEY, {
         useNewUrlParser: true, 
         useUnifiedTopology: true
     })
@@ -300,6 +300,12 @@ app.get('/Music', async (req, res) => {
         articleTitle: 'Music'
     });
 });
+
+app.get('/Privacy-Policy', (req, res) => {
+    res.render('./HTML/privacy-policy.ejs', {
+        title: 'Stishh - Privacy Policy'
+    })
+})
 
 app.all('*', (req, res, next) => {
 	next(new ExpressError('Page Not Found', 404));
