@@ -36,6 +36,9 @@ router.post('/create-article', upload.fields([{name: 'ImageHero', maxCount: 1}, 
         views: 0,
         minsToRead: `${req.body.ReadTime} mins to read.`,
         authorName: `${req.user.firstname} ${req.user.surname}`,
+        authorTitle: req.user.title,
+        authorLinks: req.user.links,
+        authorProfilePic: req.user.profilePicture,
     });
     const articleContent = JSON.parse(req.body.Content);
     for (let i = 0; i < articleContent.length; i++) {

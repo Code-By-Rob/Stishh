@@ -1,10 +1,10 @@
 <% layout('../layouts/boilerplate') %>
 <link rel="stylesheet" href="/CSS/article.css">
-<meta property="og:url"           content="https://www.stishh.com/article/<% article._id %>" />
+<meta property="og:url"           content="https://www.stishh.com/article/<%= article._id %>" />
 <meta property="og:type"          content="article" />
-<meta property="og:title"         content="<% article.title %>" />
-<meta property="og:description"   content=" <% article.description %>" />
-<meta property="og:image"         content="https://www.stishh.com/image/<% article.headerImage %> " />
+<meta property="og:title"         content="<%= article.title %>" />
+<meta property="og:description"   content=" <%= article.description %>" />
+<meta property="og:image"         content="https://www.stishh.com/image/<%= article.headerImage %> " />
 <section class="mt-5">
     <div class="container pb-3 pb-lg-5">
         <h1 id="article-title"><%= article.title %> </h1>
