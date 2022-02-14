@@ -1,6 +1,16 @@
 .footer {
     padding: 4rem 2rem;
 }
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, p::selection, a::selection, li::selection {
+    background-color: #FE5C5D;
+    color: #FFF;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo Black', sans-serif;
+}
+a, p {
+    font-family: 'Montserrat', sans-serif;
+}
 .footer-column {
     display: flex;
     flex-direction: column;

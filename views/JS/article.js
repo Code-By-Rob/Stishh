@@ -10,18 +10,18 @@ function domParse(string) {
     let doc = parser.parseFromString(string, 'text/html');
     return doc.body.firstElementChild;
 }
-console.log(screen.width);
+const articleBody = document.getElementById('article-body');
 if (screen.width > 992) {
     let controller = new ScrollMagic.Controller();
     let scene1 = new ScrollMagic.Scene({
         triggerElement: '#trigger1',
-        duration: window.clientHeight,
+        duration: articleBody.offsetHeight,
         triggerHook: 0.05
     })
     .setPin('#article-details', {pushFollowers: false});
     let scene2 = new ScrollMagic.Scene({
         triggerElement: '#trigger2',
-        duration: window.clientHeight,
+        duration: articleBody.offsetHeight,
         triggerHook: 0.05
     })
     .setPin('#article-share', {pushFollowers: false});

@@ -79,7 +79,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 const run = async () => {
     // useFindAndModify: true
     // useCreateIndex: true,
-    const connection = await mongoose.connect(process.env.MONGODB_LIVE_KEY, {
+    const connection = await mongoose.connect(process.env.MONGODB_TEST_KEY, {
         useNewUrlParser: true, 
         useUnifiedTopology: true
     })
@@ -304,6 +304,13 @@ app.get('/Music', async (req, res) => {
 app.get('/Privacy-Policy', (req, res) => {
     res.render('./HTML/privacy-policy.ejs', {
         title: 'Stishh - Privacy Policy'
+    })
+})
+
+app.get('/Our-Media-Pages', (req, res) => {
+    // render the our-media-pages.ejs file.
+    res.render('./HTML/our-media-pages.ejs', {
+        title: 'Stishh - Socials',
     })
 })
 
