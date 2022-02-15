@@ -64,6 +64,10 @@
     background-color: #1da1f2;
     color: #fff;
 }
+.bg-snapchat {
+    background-color: #fffc00;
+    color: white;
+}
 @keyframes scroll {
     0% {
         transform: translateX(0);
