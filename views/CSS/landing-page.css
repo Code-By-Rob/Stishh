@@ -26,12 +26,6 @@
 .wrapper:hover .article-post {
     transform: scale(1.05, 1.05);
 }
-.article-details {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    width: calc(100% - 2rem);
-}
 .link-fresh {
     /* turn off defualt stylings */
     text-decoration: none;
@@ -98,14 +92,6 @@
     background-position: center;
     background-size: cover;
 }
-.article-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 100%;
-    height: auto;
-}
 .card {
     border: none;
 }
@@ -165,10 +151,4 @@
     background-image: url('/Images/music-card-image.jpg');
     background-position: center;
     background-size: cover;
-}
-
-@media only screen and (max-width: 992px) {
-    .hide-article-details {
-        display: none;
-    }
 }

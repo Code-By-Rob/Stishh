@@ -93,3 +93,26 @@ a:hover .fancy-link {
 .draft-buttons {
     width: 6rem;
 }
+.article-details {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+.article-image {
+    position: relative; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+@media only screen and (max-width: 992px) {
+    .article-details {
+        display: none;
+    }
+    .article-description {
+        display: none;
+    }
+    .article-image {
+        height: 12rem;
+    }
+}

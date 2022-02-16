@@ -9,7 +9,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-9">
+        <div class="col-lg-9">
             <ul class="list-unstyled">
                 <% try { %>
                 <% for (let article of articles) { %>
@@ -17,12 +17,8 @@
                     <a href=<%= `/article/${article._id}` %>>
                         <div class="container my-article mt-4">
                             <div class="row" style="height: 100%;">
-                                <div class="col-lg-4" style=
-                                "position: relative; 
-                                background-image: url('/images/<%= article.headerImage %>'); 
-                                background-size: cover; 
-                                background-repeat: no-repeat; 
-                                background-position: center;">
+                                <div class="col-lg-4 article-image" style=
+                                    "background-image: url('/images/<%= article.headerImage %>');">
                                 </div>
                                 <div class="col-lg-6 article-content">
                                     <div class="my-article-content">
@@ -31,7 +27,7 @@
                                         <p class="article-description"><%= article.description %></p>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                <div class="col-lg-1 article-details">
                                     <ul class="list-unstyled">
                                         <li class="article-info"><%= article.views %> </li>
                                         <li class="article-info">Hearts</li>
@@ -47,7 +43,7 @@
                 <% } catch (err) { console.log('No Articles') } %>
             </ul>
         </div>
-        <div class="col-3 mt-4">
+        <div class="col-lg-3 mt-4">
             <h3 class="title-sm">Trending</h3>
             <div id="trending" class="shadow">
                 <ul class="list-unstyled">
