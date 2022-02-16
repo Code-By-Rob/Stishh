@@ -4,7 +4,6 @@
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-
     gtag('consent', 'defualt', {
         'ad_storage': 'denied'
     });
@@ -13,18 +12,17 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-220093312-1"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLMN9W9S4E"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-
-    gtag('js', new Date());
-    gtag('config', 'G-NLMN9W9S4E');
-    gtag('config', 'UA-220093312-1');
-</script>
-<script>
     function consentGranted() {
         gtag('consent', 'update', {
             'ad_storage': 'granted',
         });
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        gtag('js', new Date());
+        gtag('config', 'G-NLMN9W9S4E');
+        gtag('config', 'UA-220093312-1');
+        consentGiven();
     }
 </script>
 <meta charset="UTF-8">
@@ -67,8 +65,8 @@
         <p>It helps us understand our web traffic better.</p>
         <p>But you have the choice.</p>
         <div>
-            <button class="btn btn-primary-colour">Decline</button>
-            <button class="btn btn-primary-colour">Accept</button>
+            <button onclick="consentGiven" class="btn btn-primary-colour">Decline</button>
+            <button onclick="consentGranted" class="btn btn-primary-colour">Accept</button>
         </div>
     </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
