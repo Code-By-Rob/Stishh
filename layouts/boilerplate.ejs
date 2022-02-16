@@ -76,7 +76,10 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script>
     try {
-        if (localStorage.getItem('stishh-cookies')) {
+        if (localStorage.getItem('stishh-cookies') === 'denied') {
+            consentGiven();
+        } else if (localStorage.getItem('stishh-cookies') === 'accepted') {
+            consentGranted();
             consentGiven();
         }
     } catch(err) {
