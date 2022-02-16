@@ -12,6 +12,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-220093312-1"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLMN9W9S4E"></script>
 <script>
+    try {
+        if (localStorage.getItem('stishh-cookies')) {
+            consentGiven();
+        }
+    } catch(err) {
+        console.log(err);
+    }
     function consentGranted() {
         gtag('consent', 'update', {
             'ad_storage': 'granted',
@@ -22,6 +29,7 @@
         gtag('js', new Date());
         gtag('config', 'G-NLMN9W9S4E');
         gtag('config', 'UA-220093312-1');
+        localStorage.setItem('stishh-cookies', 'accepted');
         consentGiven();
     }
 </script>
@@ -65,7 +73,7 @@
         <p>It helps us understand our web traffic better.</p>
         <p>But you have the choice.</p>
         <div>
-            <button onclick="consentGiven()" class="btn btn-primary-colour">Decline</button>
+            <button onclick="consentFalse()" class="btn btn-primary-colour">Decline</button>
             <button onclick="consentGranted()" class="btn btn-primary-colour">Accept</button>
         </div>
     </div>
@@ -74,6 +82,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script>
+    function consentFalse() {
+        localStorage.setItem('stishh-cookies', 'denied');
+        consentGiven();
+    }
     function consentGiven() {
         document.querySelector('.cookie-consent-form').style.display = 'none';
     }
