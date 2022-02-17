@@ -11,7 +11,7 @@ function domParse(string) {
     return doc.body.firstElementChild;
 }
 const articleBody = document.getElementById('article-body');
-if (screen.width > 992) {
+if (window.innerWidth > 992) {
     let controller = new ScrollMagic.Controller();
     let scene1 = new ScrollMagic.Scene({
         triggerElement: '#trigger1',

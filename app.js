@@ -301,6 +301,16 @@ app.get('/Music', async (req, res) => {
     });
 });
 
+app.get('/Dark', async (req, res) => {
+    const articles = await Article.find({topic: 'Dark'});
+    console.log(articles);
+    res.render('./HTML/article-showcase.ejs', {
+        title: 'Stishh - Dark',
+        articles,
+        articleTitle: 'Dark'
+    });
+});
+
 app.get('/Privacy-Policy', (req, res) => {
     res.render('./HTML/privacy-policy.ejs', {
         title: 'Stishh - Privacy Policy'
