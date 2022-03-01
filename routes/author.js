@@ -22,52 +22,60 @@ router.get('/article-post', (req, res) => {
     })
 })
 router.post('/create-article', upload.fields([{name: 'ImageHero', maxCount: 1}, {name: 'Images'}], ), async (req, res) => {
-    let count = 0;
-    const file = req.files['ImageHero'][0];
-    const result = await uploadFile(file);
-    console.log(result);
-    console.log(JSON.parse(req.body.Content));
-    let newArticle = new Article({
-        title: req.body.Title,
-        description: req.body.Description,
-        topic: req.body.Topic,
-        headerImage: result.Key,
-        date: req.body.Date,
-        views: 0,
-        minsToRead: `${req.body.ReadTime} mins to read.`,
-        authorName: `${req.user.firstname} ${req.user.surname}`,
-        authorTitle: req.user.title,
-        authorLinks: req.user.links,
-        authorProfilePic: req.user.profilePicture,
-    });
-    const articleContent = JSON.parse(req.body.Content);
-    for (let i = 0; i < articleContent.length; i++) {
-        try {
-            if (articleContent[i].image !== undefined) {
-                console.log('got here');
-                const imageResult = await uploadFile(req.files['Images'][count]);
-                count++;
-                const imageObject = {'image': imageResult.Key};
-                newArticle.content.push(imageObject);
-            } else {
-                newArticle.content.push(articleContent[i]);
+    try {
+        let count = 0;
+        const file = req.files['ImageHero'][0];
+        const result = await uploadFile(file);
+        console.log(result);
+        console.log(JSON.parse(req.body.Content));
+        let newArticle = new Article({
+            title: req.body.Title,
+            description: req.body.Description,
+            topic: req.body.Topic,
+            headerImage: result.Key,
+            date: req.body.Date,
+            views: 0,
+            minsToRead: `${req.body.ReadTime} mins to read.`,
+            authorName: `${req.user.firstname} ${req.user.surname}`,
+            authorTitle: req.user.title,
+            authorLinks: req.user.links,
+            authorProfilePic: req.user.profilePicture,
+        });
+        const articleContent = JSON.parse(req.body.Content);
+        for (let i = 0; i < articleContent.length; i++) {
+            try {
+                if (articleContent[i].image !== undefined) {
+                    console.log('got here');
+                    const imageResult = await uploadFile(req.files['Images'][count]);
+                    count++;
+                    const imageObject = {'image': imageResult.Key};
+                    newArticle.content.push(imageObject);
+                } else {
+                    newArticle.content.push(articleContent[i]);
+                }
+            } catch (err) {
+                console.log(err);
             }
-        } catch (err) {
-            console.log(err);
         }
+        const articleTags = JSON.parse(req.body.Tags);
+        for (let j = 0; j < articleTags.length; j++) {
+            newArticle.tags.push(articleTags[j]);
+        }
+        const { _id } = req.user;
+        const me = await User.findById(_id);
+        await me.articles.push(newArticle);
+        await newArticle.save();
+        await me.save();
+        res.send({
+            articleID: newArticle._id,
+            message: 'success',
+        })
+    } catch(err) {
+        console.log(err);
+        res.send({
+            message: 'failure',
+        })
     }
-    const articleTags = JSON.parse(req.body.Tags);
-    for (let j = 0; j < articleTags.length; j++) {
-        newArticle.tags.push(articleTags[j]);
-    }
-    const { _id } = req.user;
-	const me = await User.findById(_id);
-    await me.articles.push(newArticle);
-    await newArticle.save();
-    await me.save();
-    res.send({
-        message: 'success',
-    })
 })
 router.post('/drafts-delete', async (req, res) => {
     const { _id } = req.body;
