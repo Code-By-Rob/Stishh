@@ -65,6 +65,9 @@ router.post('/create-article', upload.fields([{name: 'ImageHero', maxCount: 1}, 
     await me.articles.push(newArticle);
     await newArticle.save();
     await me.save();
+    res.send({
+        message: 'success',
+    })
 })
 router.post('/drafts-delete', async (req, res) => {
     const { _id } = req.body;
@@ -142,6 +145,7 @@ router.post('/create-draft', upload.fields([{name: 'ImageHero', maxCount: 1}, {n
     await me.save();
     res.send({
         draftId: newDraft._id,
+        message: 'success',
     })
 });
 router.post('/save-draft', upload.fields([{name: 'ImageHero', maxCount: 1}, {name: 'Images'}]), async (req, res) => {

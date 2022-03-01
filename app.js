@@ -324,6 +324,12 @@ app.get('/Our-Media-Pages', (req, res) => {
     })
 })
 
+app.get('/Games/Globle', (req, res) => {
+    res.render('./HTML/globle.ejs', {
+        title: 'Stishh - Globle Game'
+    })
+})
+
 app.all('*', (req, res, next) => {
 	next(new ExpressError('Page Not Found', 404));
 });

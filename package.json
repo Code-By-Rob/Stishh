@@ -16,7 +16,7 @@
     "admin-bro": "^4.0.1",
     "aws-sdk": "^2.1046.0",
     "body-parser": "^1.19.1",
-    "d3": "^7.1.1",
+    "d3": "^7.3.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "ejs-mate": "^3.0.0",
@@ -30,6 +30,7 @@
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
+    "topojson-client": "^3.1.0",
     "tslib": "^2.3.1"
   }
 }
