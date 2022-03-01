@@ -35,6 +35,8 @@ router.post('/login', passport.authenticate('local', { failureFlash: false, fail
             res.redirect('/Author/Profile');
         }
     } else if (req.user.role === 'Admin') {
+        console.log(req.user.role);
+        console.log('got here.');
         res.redirect('/Admin');
     } else {
         res.redirect('/');

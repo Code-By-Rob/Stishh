@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use('/', userRoutes);
 app.use('/Admin', isAdmin, adminRoutes);
-app.use('/Author', isAuthor, authorRoutes)
+app.use('/Author', isAuthor, authorRoutes);
 app.use(express.static(__dirname+'/HTML'));
 app.use(express.static(__dirname+'/CSS'));
 app.use(express.static(__dirname+'/JS'));
@@ -79,7 +79,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 const run = async () => {
     // useFindAndModify: true
     // useCreateIndex: true,
-    const connection = await mongoose.connect(process.env.MONGODB_LIVE_KEY, {
+    const connection = await mongoose.connect(process.env.MONGODB_TEST_KEY, {
         useNewUrlParser: true, 
         useUnifiedTopology: true
     })
@@ -119,7 +119,7 @@ const run = async () => {
         dashboard: {
             component: AdminBro.bundle('./admin/dashboard'),
         },
-        rootPath: '/admin',
+        rootPath: '/Admin',
         locale: {
             translations: {
                 labels: {
@@ -156,7 +156,6 @@ const run = async () => {
             }
         }
     });
-
     const router = AdminBroExpress.buildRouter(adminBro);
     app.use(adminBro.options.rootPath, router);
 }
@@ -330,17 +329,17 @@ app.get('/Games/Globle', (req, res) => {
     })
 })
 
-app.all('*', (req, res, next) => {
-	next(new ExpressError('Page Not Found', 404));
-});
+// app.all('*', (req, res, next) => {
+// 	next(new ExpressError('Page Not Found', 404));
+// });
 
-app.use((err, req, res, next) => {
-	const { statusCode = 500 } = err;
-	console.log(err);
-	res.status(statusCode).render('./HTML/404-page.ejs', {
-		title: 'Oops!'
-	});
-});
+// app.use((err, req, res, next) => {
+// 	const { statusCode = 500 } = err;
+// 	console.log(err);
+// 	res.status(statusCode).render('./HTML/404-page.ejs', {
+// 		title: 'Oops!'
+// 	});
+// });
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
