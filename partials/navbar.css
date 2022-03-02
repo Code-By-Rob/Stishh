@@ -168,4 +168,23 @@
         flex-direction: column;
         align-items: center;
     }
+    .ad-display {
+        margin-right: 0;
+    }
+    #ad-description {
+        margin-bottom: 0;
+        margin-left: 0;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+    }
+    #ad-link {
+        margin-left: 0;
+        font-family: sans-serif;
+        text-decoration: none;
+        color: #1777f2;
+        border-radius: .5rem;
+        transition: all .3s;
+        padding: 0 .5rem;
+        outline: #1777f2 solid 1px;
+    }
 }
