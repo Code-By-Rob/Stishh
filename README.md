@@ -21,5 +21,5 @@ I built this website after studying the materials of [The Web Developer Bootcamp
 Here is my website: [robertbowden.uk](https://robertbowden.uk/)
 And here is a list of other projects I worked on:
 - [video hosting platform](#)
-- [Friend Finder Application](#)
-- [FalpyBird](#)
+- [Friend Finder Application](https://github.com/Code-By-Rob/Friend-Finder-App)
+- [FalpyBird](https://github.com/Code-By-Rob/flappy-bird-clone)
