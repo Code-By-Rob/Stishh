@@ -18,7 +18,8 @@ I built this website after studying the materials of [The Web Developer Bootcamp
 
 # Links
 
-Here is my website: [robertbowden.uk](https://robertbowden.uk/)
+Here is my website: [robertbowden.uk](https://robertbowden.uk/) & here is my [LinkedIn](https://www.linkedin.com/in/r-bowden/)
+
 And here is a list of other projects I worked on:
 - [video hosting platform](#)
 - [Friend Finder Application](https://github.com/Code-By-Rob/Friend-Finder-App)
