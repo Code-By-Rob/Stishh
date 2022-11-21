@@ -15,6 +15,7 @@ I built this website after studying the materials of [The Web Developer Bootcamp
 - JavaScript (EJS)
 - Node.js
 - MongoDB
+- AWS (s3)
 
 # Links
 
